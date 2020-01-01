@@ -1,7 +1,7 @@
 // This just displays the first parameter passed to it
 // in an alert.
 
-var url = "/test/server.php?id=%22hello%22/";
+var url = "http://192.168.1.107:80/test/server.php?id=%22hello%22/";
 
 function run() {
     document.getElementById("out").innerHTML = "STAND BY (1/2)";
