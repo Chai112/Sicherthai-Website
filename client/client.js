@@ -7,6 +7,15 @@ url = url + "&q="
 url = url + q;
 //var url = "http://validate.jsontest.com/?json=a";
 
+function report(item, index)
+{
+    document.write("<p>" +
+        item.id                      + ",<br>" + 
+        item.name.replace(/_/g," ")  + ",<br>" +
+        "</p>"
+    );
+}
+
 function run() {
     $("#out").text("STAND BY (1/2)");
     $.getJSON(
@@ -23,7 +32,8 @@ function run() {
                 text = "AUTH ERROR: IDs do not match";
             }
 
-            $("#out").text(text + " " + data.answer);
+            $("#out").text(text);
+            data.answer.forEach(report);
         }
     );
 }
