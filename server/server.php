@@ -27,17 +27,17 @@ $username = "id12114678_sicher";
 $password = "Titacute_";
 $database = "id12114678_alpha";
 
-// Create connection
+// SQL Create connection
 $db = new mysqli($servername, $username, $password, $database);
 
-// Check connection
+// SQL Check connection
 if ($db->connect_error) 
 {
     report_err("SQL Connection failed: " . $db->connect_error);
 }
 
 
-// get info
+// SQL get info
 $index = 0;
 //$query = "SELECT id FROM Courses WHERE name = '" .$q ."'";
 $query = "SELECT * FROM Courses";
@@ -48,7 +48,18 @@ if ($result = $db->query($query)) // TODO: unsanitised
     {
         $data->answer[$index] = array(
             "id" => $row["id"],
-            "name" => $row["name"]
+            "name" => $row["name"],
+            "is_public" => $row["is_public"],
+            "is_inhouse" => $row["is_inhouse"],
+            "date" => $row["date"],
+            "duration" => $row["duration"],
+            "price" => $row["price"],
+            "location" => $row["location"],
+            "lecturer1_name" => $row["lecturer1_name"],
+            "lecturer2_name" => $row["lecturer2_name"],
+            "lecturer3_name" => $row["lecturer3_name"],
+            "lecturer4_name" => $row["lecturer4_name"],
+            "description" => $row["description"]
         );
         $index++;
     }
@@ -59,22 +70,6 @@ else
 {
     report_err("SQL Message failed: " .$result);
 }
-
-/*
-if (file_exists('internal_data.txt')) {
-    $data->answer = file_get_contents('internal_data.txt');
-    // Add 1 to $data
-    $data->answer = $data->answer + 1;
-    // Update file
-    file_put_contents('internal_data.txt', $data->answer);
-}
-else
-{
-    $data->status = "Data failed: cannot access internal-data.txt";
-    $data->answer = -1;
-    $data->err = true;
-}
- */
 
 // Send the data.
 echo json_encode($data);

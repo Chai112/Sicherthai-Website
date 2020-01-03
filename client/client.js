@@ -9,9 +9,38 @@ url = url + q;
 
 function report(item, index)
 {
+    var id = item.id;
+    var name = item.name.replace(/_/g," ");
+    var is_public = item.is_public;
+    var is_inhouse = item.is_inhouse;
+    var date = item.date;
+    var duration = item.duration;
+    var price = item.price;
+    var loc = item.location;
+    var lecturer1_name = item.lecturer1_name;
+    var lecturer2_name = item.lecturer2_name;
+    var lecturer3_name = item.lecturer3_name;
+    var lecturer4_name = item.lecturer4_name;
+    var description = item.description;
+
     document.write("<p>" +
-        item.id                      + ",<br>" + 
-        item.name.replace(/_/g," ")  + ",<br>" +
+        "<b>id: " + id + ", " + name + "<br>");
+
+    if (is_public === "1")
+    {
+        document.write("public training<br>");
+    }
+    else
+    {
+        document.write("in house training<br>");
+    }
+
+    document.write("</b>" +
+        "date: " + date + "<br>" +
+        "duration: " + duration + "<br>" +
+        "price: " + price + "<br>" +
+        "location: " + loc + "<br>" +
+        "description: " + description + "<br>" +
         "</p>"
     );
 }
