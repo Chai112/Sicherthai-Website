@@ -2,17 +2,25 @@ body {
     font-family: 'Open Sans', sans-serif;
     padding: 0px;
 }
+body.en :lang(th) {
+  display: none;
+}
+body.th :lang(en) {
+  display: none;
+}
 p {
     font-size:15px;
-    font-color:#000000;
 }
 h1 {
     font-size:35px;
-    font-color:#000000;
+
+    text-align:center;
 }
 h2 {
-    font-size:25px;
+    font-size:30px;
+
     font-weight:normal;
+    letter-spacing: -0.05em;
     color:#888888;
 }
 div.wrap {
