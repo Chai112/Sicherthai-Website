@@ -9,24 +9,12 @@ url = url + q;
 
 function report(item, index)
 {
-    var id = item.id;
-    var name = item.name.replace(/_/g," ");
-    var is_public = item.is_public;
-    var is_inhouse = item.is_inhouse;
-    var date = item.date;
-    var duration = item.duration;
-    var price = item.price;
-    var loc = item.location;
-    var lecturer1_name = item.lecturer1_name;
-    var lecturer2_name = item.lecturer2_name;
-    var lecturer3_name = item.lecturer3_name;
-    var lecturer4_name = item.lecturer4_name;
-    var description = item.description;
+    item.name = item.name.replace(/_/g, " ");
 
     document.write("<p>" +
-        "<b>id: " + id + ", " + name + "<br>");
+        "<b>id: " + item.id + ", " + item.name + "<br>");
 
-    if (is_public === "1")
+    if (item.is_public === "1")
     {
         document.write("public training<br>");
     }
@@ -36,17 +24,16 @@ function report(item, index)
     }
 
     document.write("</b>" +
-        "date: " + date + "<br>" +
-        "duration: " + duration + "<br>" +
-        "price: " + price + "<br>" +
-        "location: " + loc + "<br>" +
-        "description: " + description + "<br>" +
+        "date: " + item.date + "<br>" +
+        "duration: " + item.duration + "<br>" +
+        "price: " + item.price + "<br>" +
+        "location: " + item.location + "<br>" +
+        "description: " + item.description + "<br>" +
         "</p>"
     );
 }
 
 function run() {
-    $("#out").text("STAND BY (1/2)");
     $.getJSON(
         url,
         function(data) {
@@ -68,5 +55,5 @@ function run() {
 }
 
 // We'll run the AJAX query when the page loads.
-$("#out").text("STAND BY (0/2)");
+$("#out").text("Connecting...");
 window.onload=run;

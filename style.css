@@ -1,0 +1,25 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    padding: 0px;
+}
+p {
+    font-size:15px;
+    font-color:#000000;
+}
+h1 {
+    font-size:35px;
+    font-color:#000000;
+}
+h2 {
+    font-size:25px;
+    font-weight:normal;
+    color:#888888;
+}
+div.wrap {
+    display: block;
+    margin: auto;
+    width: 60%;
+    min-width: 400px;
+    border: 0px;
+    padding: 10px;
+}
