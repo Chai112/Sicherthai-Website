@@ -23,6 +23,13 @@ h2 {
     letter-spacing: -0.05em;
     color:#888888;
 }
+h3 {
+    font-size:30px;
+
+    text-align:center;
+    font-weight:normal;
+    letter-spacing: -0.05em;
+}
 div.wrap {
     display: block;
     margin: auto;
@@ -30,4 +37,15 @@ div.wrap {
     min-width: 400px;
     border: 0px;
     padding: 10px;
+}
+div.box {
+    display: block;
+    border-radius:10px;
+    box-shadow: 0px 10px 20px #dddddd;
+
+    margin: auto;
+    width: 20%;
+    min-width: 400px;
+    border: 0px;
+    padding: 30px;
 }
