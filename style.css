@@ -1,9 +1,9 @@
 body {
     font-family: 'Open Sans', sans-serif;
-    max-width: 100%;
-    overflow-x: hidden;
+    max-width:100%;
+    overflow-x:hidden;
     margin:0;
-    padding: 0;
+    padding:0;
 }
 .header {
     display:block;
@@ -19,9 +19,19 @@ body {
     position:fixed;
     float: left;
 
+    margin:1vh 1vh;
+    width:8vh;
+    height:8vh;
+}
+.header .buttons {
     margin:1vh 30vh;
     width:8vh;
     height:8vh;
+}
+.header .button {
+    font-size:1.5em;
+    font-weight:bold;
+    margin-top:5vh;
 }
 img {
     display:inline-block;
@@ -49,7 +59,7 @@ h2 {
     color:#888888;
 }
 h3 {
-    font-size:1.2em;
+    font-size:1.5em;
 
     text-align:center;
     font-weight:normal;
@@ -71,12 +81,12 @@ h3 {
     right:0em;
 
     margin:auto;
-    max-width:20em;
+    max-width:24em;
     height:32em;
     border:10em;
 
     border-radius:10px;
-    box-shadow:0px 1em 2em #dddddd;
+    box-shadow:0px 0.2em 1em #dddddd;
 }
 .box .wrap {
     display:block;
