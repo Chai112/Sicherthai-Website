@@ -8,47 +8,76 @@ html, body {
 }
 .header {
     display:block;
-    height:10vh;
+    height:8vh;
     width:100%;
+    border-bottom:1px solid #dddddd;
     background-color:white;
     position:fixed;
-    z-index:1;
-    box-shadow:0px 0.5em 1em #00000010;
+    z-index:2;
+    box-shadow:0 0em 1em #00000010;
 }
-.header .img {
+.header .logo {
     display:block;
     position:fixed;
-    float: left;
+    left:0;
 
-    margin:1vh 1vh;
-    width:8vh;
-    height:8vh;
+    margin:0.5vh 0.5vh;
+    width:7vh;
+    height:7vh;
+}
+.header .menu-img {
+    display:none;
+    position:absolute;
+    right:0;
+
+    margin:0.5vh 2vh;
+    width:3vh;
+    height3vh;
 }
 .header .buttons {
-    margin:1vh 30vh;
-    width:8vh;
-    height:8vh;
+    display:block;
+    margin:auto;
+    margin-top:2vh;
+    margin-left:20vw;
 }
 .header .button {
-    font-size:1.5em;
-    font-weight:bold;
-    margin-top:5vh;
+    display:inline-block;
+    cursor:pointer;
+    margin-top:1vh;
+    margin-left:2vw;
+
+    padding-top:1vw;
+
+    font-size:1.1em;
+    font-weight:600;
+    letter-spacing:-0.03em;
+    text-align:center;
 }
 img {
     display:inline-block;
     width:100%;
 }
 .en :lang(th) {
-  display: none;
+  display:none;
 }
 .th :lang(en) {
-  display: none;
+  display:none;
+}
+a:visited {
+  color:black;
+}
+a:hover{
+  color:#555555;
+}
+a:active, a:focus {
+  color:#a33035;
 }
 p {
     font-size:1em;
 }
 h1 {
     font-size:2.5em;
+    font-weight:600;
 
     text-align:center;
 }
@@ -56,11 +85,11 @@ h2 {
     font-size:1.9em;
 
     font-weight:normal;
-    letter-spacing:-0.05em;
+    letter-spacing:-0.03em;
     color:#888888;
 }
 h3 {
-    font-size:1.5em;
+    font-size:1.3em;
 
     text-align:center;
     font-weight:normal;
@@ -87,7 +116,7 @@ h3 {
     border:10em;
 
     border-radius:10px;
-    box-shadow:0px 0.2em 1em #dddddd;
+    box-shadow:0 0.2em 1em #dddddd;
 }
 .box .wrap {
     display:block;
@@ -97,9 +126,26 @@ h3 {
     padding-top:10px;
 }
 .box img {
-    width:100%;
     position:static;
     border-top-left-radius:10px;
     border-top-right-radius:10px;
     padding-bottom:10px;
+}
+@media only screen and (max-width: 950px) { 
+  #d-width { 
+      display:none; 
+  } 
+  #m-width {
+      display:inline-block;
+      position:fixed;
+      right:0;
+      margin:-1.5vh 0vh;
+      padding:3vh 3vh;
+  }
+  #m-obj {
+      display:inline-block;
+  }
+  #btn-menu {
+      display:inline-block;
+  }
 }

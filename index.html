@@ -1,10 +1,14 @@
 <html lang="en">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
     <div class="header">
-        <img class="img" src="images/logo.jpg" alt="">
+        <img class="logo" src="images/logo.jpg" alt="">
+        <!--<a id="btn-menu"><div id="m-width" class="menu-img"><object id="m-width" class="menu-svg" data="images/mobile_menu_icon.svg" type="image/svg+xml"></object></div></a>-->
         <div class="buttons">
-            <div class="button">eServices</div>
+            <a id="btn-os"><div id="d-width" class="button">OUR SERVICES</div></a>
+            <a href="https://google.com"><div id="d-width" class="button">ABOUT</div></a>
+            <a href="https://google.com"><div id="d-width" class="button">CONTACT</div></a>
+            <a id="btn-menu"><object id="m-obj" class="menu-img" data="images/mobile_menu_icon.svg" type="image/svg+xml"></object><div id="m-width" class="button"></div></a>
         </div>
         
         <button onclick="document.body.className='en'">English</button><button onclick="document.body.className='th'">ภาษาไทย</button>
@@ -12,6 +16,15 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </div>
+    <div id="sub-header" class="header" style="display:none;z-index:1;margin-top:7vh;color:white;background-color:#00000070;backdrop-filter:blur(30px);border:hidden">
+        <div class="buttons">
+            <div id="d-width" class="button">PUBLIC TRAINING</div>
+            <div id="d-width" class="button">INHOUSE TRAINING</div>
+            <div id="d-width" class="button">AUDITING</div>
+            <div id="d-width" class="button">CONSULTING</div>
+        </div>
+    </div>
+    <div style="height:8vh"></div>
     <img src="images/sicher3.jpg" alt="">
     <div style="height:5em">
         <h1>Our Services</h1>
@@ -95,4 +108,5 @@
             </div>
         </body>
     </div>
+    <script type="text/javascript" src="behaviour.js"></script>
 </html>
