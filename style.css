@@ -14,7 +14,7 @@ html, body {
     background-color:white;
     position:fixed;
     z-index:2;
-    box-shadow:0 0em 1em #00000010;
+    box-shadow:0 0em 1em #00000030;
 }
 .header .logo {
     display:block;
@@ -104,6 +104,36 @@ h3 {
     padding-left:5%;
     padding-right:5%;
 }
+.tbox {
+    display:inline-block;
+    position:absolute;
+    left:0em;
+    right:0em;
+
+    margin:auto;
+    width:10vw;
+    height:10vw;
+    border-radius:50%;
+    box-shadow:0 0.5em 0.8em #aaaaaa;
+}
+.hbox {
+    display:inline-block;
+    position:absolute;
+    left:0em;
+    right:0em;
+
+    margin:auto;
+    width:3vw;
+    height:3vw;
+}
+.fbox {
+    display:inline-block;
+    margin-left:0.1em;
+    margin-right:0.1em;
+    width:20em;
+    height:15em;
+    overflow-x:hidden;
+}
 .box {
     display:inline-block;
     position:absolute;
@@ -112,7 +142,7 @@ h3 {
 
     margin:auto;
     max-width:24em;
-    height:32em;
+    height:34em;
     border:10em;
 
     border-radius:10px;
