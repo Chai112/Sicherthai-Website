@@ -1,40 +1,14 @@
 <html lang="en">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
-    <div class="header">
-        <a href="index.html"><img class="logo" src="images/logo.jpg" alt=""></a>
-        <a style="position:fixed;right:10vw;top:1vw"><h3>+66 8295 99593</h3></a>
-        <!--<a id="btn-menu"><div id="m-width" class="menu-img"><object id="m-width" class="menu-svg" data="images/mobile_menu_icon.svg" type="image/svg+xml"></object></div></a>-->
-        <div class="buttons">
-            <a id="btn-os"><div id="d-width" class="button">OUR SERVICES</div></a>
-            <a href="about.html" style="color:#a33035"><div id="d-width" class="button">ABOUT</div></a>
-            <a href="contact.html"><div id="d-width" class="button">CONTACT</div></a>
-            <a id="btn-menu"><object id="m-obj" class="menu-img" data="images/mobile_menu_icon.svg" type="image/svg+xml"></object><div id="m-width" class="button"></div></a>
-        </div>
-        <div id="m-header" class="header" style="display:none;z-index:1;margin-top:7vh;color:white;background-color:#00000070;backdrop-filter:blur(30px);border:hidden;height:100%">
-            <div class="buttons" style="margin:auto">
-                <a id="m-btn-os"><div id="m-btn" class="button">OUR SERVICES</div></a>
-                <a href="about.html"><div id="m-btn" class="button" style="color:grey">ABOUT</div></a>
-                <a href="contact.html"><div id="m-btn" class="button">CONTACT</div></a>
-                <a id="m-btn-os-ptr"><div id="m-btn" class="button"><a href="training.html">TRAINING</a></div></a>
-                <a id="m-btn-os-itr"><div id="m-btn" class="button">INHOUSE TRAINING</div></a>
-                <a id="m-btn-os-aud"><div id="m-btn" class="button">AUDITING</div></a>
-                <a id="m-btn-os-con"><div id="m-btn" class="button">CONSULTING</div></a>
-            </div>
-        </div>
-        
-        <button onclick="document.body.className='en'">English</button><button onclick="document.body.className='th'">ภาษาไทย</button>
-        <br>
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </div>
-    <div id="sub-header" class="header" style="display:none;z-index:1;margin-top:7vh;color:white;background-color:#00000070;backdrop-filter:blur(30px);border:hidden">
-        <div class="buttons">
-            <a href="training.html" style="color:white"><div id="d-width" class="button">TRAINING</div></a>
-            <a href="auditing.html" style="color:white"><div id="d-width" class="button">AUDITING</div></a>
-            <a href="consulting.html" style="color:white"><div id="d-width" class="button">CONSULTING</div></a>
-        </div>
-    </div>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+        $(function(){
+          $("#header").load("header/header.html"); 
+        });
+    </script> 
+    <div id="header"></div>
 
     <div class="wrap" style="height:3em"></div>
 
