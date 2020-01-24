@@ -40,3 +40,7 @@ document.getElementById("btn-menu").addEventListener("click", function()
         document.getElementById("m-header").style.display = 'none';
     }
 });
+document.getElementById("btn-email").addEventListener("click", function()
+{
+    window.location.href = "mailto:contactus@sicherthai.com";
+});
