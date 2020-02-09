@@ -94,6 +94,11 @@ h3 {
 
     text-align:center;
     font-weight:normal;
+    
+    font-size:1.1em;
+    font-weight:600;
+    letter-spacing:-0.03em;
+    text-align:center
 }
 .wrap {
     display:block;
@@ -121,7 +126,7 @@ h3 {
     display:inline-block;
 
     margin:auto;
-    height:3vw;
+    height:3em;
     width:auto;
 }
 .fbox {
@@ -132,6 +137,10 @@ h3 {
     height:15em;
     overflow-x:hidden;
 }
+.abox {
+    display:inline-block;
+    position:absolute;
+}
 .box {
     display:inline-block;
     position:absolute;
@@ -141,7 +150,7 @@ h3 {
 
     margin:auto;
     max-width:24em;
-    height:34em;
+    height:37em;
     border:10em;
 
     border-radius:5px;
