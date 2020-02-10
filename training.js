@@ -14,7 +14,7 @@ function report(item, index)
 {
     item.name = item.name.replace(/_/g, " ");
     $("#out-title").text(item.name);
-    $("#out-txt").text("location: " + item.location + " date: " + item.date);
+    $("#out-txt").text(item.location + ", " + item.price + " THB");
     var out = document.getElementById("out").cloneNode(true);
     out.style="padding-left:3vw;max-width:70em;height:15vh;margin-top:" + sep + "em";
 
@@ -24,7 +24,7 @@ function report(item, index)
     {
         i--;
     }
-    $(out).click(function() {window.open(window.location.href.substring(0, i) + "/t-page.html?p=" + item.name);});
+    $(out).click(function() {window.open(window.location.href.substring(0, i) + "/t-page.html?p=" + item.id);});
     list.style="margin-bottom:" + (sep + 10) + "em";
     sep = sep + 10;
     document.getElementById("list").appendChild(out);
