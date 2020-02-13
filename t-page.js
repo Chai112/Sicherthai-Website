@@ -97,19 +97,19 @@ $("#d-box").click(function() {
 
 
 function run() {
-    //alert(getParameterByName("p"));
     $.getJSON(
         url,
         function(data) {
             var text = data.status;
             if (data.err)
             {
-                text = "SERVER ERROR: " + text;
-                alert(text);
+                alert("Internal Server Error, please try again");
+                //SERVER ERROR
             }
             if (id !== data.id)
             {
-                text = "AUTH ERROR: IDs do not match";
+                alert("Internal Server Error, please try again");
+                //AUTH ERROR: IDs do not match
             }
             // learning objective - objective
             // target group

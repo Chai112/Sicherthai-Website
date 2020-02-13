@@ -14,47 +14,6 @@ var services_4_txt = "We support the safe transport, handling and storage of dan
 var services_5_txt = "With the official partner between Robere and Associates Company - first approved training partner in Asia Pacific by CQI - The Chartered Quality Institute and IRCA: International Register of Certified Auditors from the United Kingdom and Sicher Company Limited, we provide  training and consulting of ISO 45001- Occupational Health and Safety Management System and  ISO 3100 - Risk Management System for all clients."
 var services_6_txt = "The fatal injury rate for the construction industry is higher than the national average in this category for all industries. In our passion to protect the life of workers ,Sicher focus in this area and support the clients to decrease incidents and protect the life of people and properties."
 
-function report(item, index)
-{
-    /*
-    item.name = item.name.replace(/_/g, " ");
-    $("#out-title").text(item.name);
-    $("#out-txt").text(item.location + ", " + item.price + " THB");
-    var out = document.getElementById("out").cloneNode(true);
-
-    w = window.location.href;
-    i = window.location.href.length;
-    while (window.location.href[i] != '/')
-    {
-        i--;
-    }
-    $
-    if (item.is_public === "1")
-    {
-        //document.write("public training<br>");
-    }
-    else
-    {
-        //document.write("in house training<br>");
-    }
-    */
-
-    /*document.write("</b>" +
-        "date: " + item.date + "<br>" +
-        "duration: " + item.duration + "<br>" +
-        "price: " + item.price + "<br>" +
-        "location: " + item.location + "<br>" +
-        "description: " + item.description + "<br>" +
-        "</p>"
-    );*/
-    /*
-    the display is very oddl placed the quick brown fox jumped over the lazy dog
-    I cannot tell thje difference between the f and the j key
-    The quick brown fox jumped over the lazy dog
-    Indonesia's Tiger Population is dropping very fast
-    */
-    /*I am now typing with regular keys and creating a lot of noise. Sicher proviudes Process Safety Management training, consuilting and assessment by our international and national instreuctores and assessors who has a minimum of 25 ytears of PSM knowledge and experience in BASF and the national instructors and assesors who has a minimum of 25 years of PSM knopwledge and experience */
-}
 $("#services-left").click(function ()
 {
     if (services_pos === 1)
@@ -93,5 +52,17 @@ $("#services-right").click(function ()
     }
 });
 
-// We'll run the AJAX query when the page loads.
-//$("#out").text("Connecting...");
+$(document).ready(function(){
+  $("#input-search-main").keyup(function(e){
+    if(e.keyCode == 13)
+    {
+        w = window.location.href;
+        i = window.location.href.length;
+        while (window.location.href[i] != '/')
+        {
+            i--;
+        }
+        window.open(window.location.href.substring(0, i) + "/training.html?search=" + this.value);
+    }
+  });
+});

@@ -110,6 +110,17 @@ th {
     text-align:left;
     padding:0.5em;
 }
+input[type="text"] {
+    padding:0;
+    padding-top:-0.5em;
+    padding-left:3em;
+    width:34em;
+    height:3em;
+
+    background:transparent;
+    border:none;
+}
+input:focus, textarea:focus, select:focus{outline: none;}
 tr:nth-child(even) {background-color: #f2f2f2;}
 .wrap {
     display:block;
@@ -193,6 +204,22 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     border-top-left-radius:5px;
     border-top-right-radius:5px;
     padding-bottom:10px;
+}
+.bar {
+    display:block;
+
+    /*center*/
+    left:0;
+    right:0;
+    margin:auto;
+
+    margin-top:2vw;
+
+    width:28em;
+    height:3em;
+
+    border-radius:3em;
+    box-shadow:0 0.2em 0.5em #00000020;
 }
 @media only screen and (max-width: 950px) { 
   #d-width { 
