@@ -121,6 +121,7 @@ function run() {
             //location 1-6
             data.answer.forEach(report);
             gitem = items[getParameterByName("p")];
+            $("#reg-txt").text("REGISTER NOW | " + gitem.price + " THB");
             for (i = 1; i < 7; i++)
             {
                 loc = 0;
@@ -175,6 +176,11 @@ function run() {
     );
 
 }
+
+document.getElementById("reg").addEventListener("click", function()
+{
+    window.location.href = "mailto:contactus@sicherthai.com?subject=registeration form&body=test";
+});
 
 // We'll run the AJAX query when the page loads.
 //$("#out").text("Connecting...");

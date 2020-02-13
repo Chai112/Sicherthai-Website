@@ -65,4 +65,52 @@ $(document).ready(function(){
         window.open(window.location.href.substring(0, i) + "/training.html?search=" + this.value);
     }
   });
+    $("#b-1").click(function(){
+        w = window.location.href;
+        i = window.location.href.length;
+        while (window.location.href[i] != '/')
+        {
+            i--;
+        }
+        if (services_pos === 0)
+        {
+            window.location.href = window.location.href.substring(0, i) + "/training.html?category=" + 1;
+        }
+        else
+        {
+            window.location.href = window.location.href.substring(0, i) + "/training.html?category=" + 4;
+        }
+    });
+    $("#b-2").click(function(){
+        w = window.location.href;
+        i = window.location.href.length;
+        while (window.location.href[i] != '/')
+        {
+            i--;
+        }
+        if (services_pos === 0)
+        {
+            window.location.href = window.location.href.substring(0, i) + "/training.html?category=" + 2;
+        }
+        else
+        {
+            window.location.href = window.location.href.substring(0, i) + "/training.html?category=" + 5;
+        }
+    });
+    $("#b-3").click(function(){
+        w = window.location.href;
+        i = window.location.href.length;
+        while (window.location.href[i] != '/')
+        {
+            i--;
+        }
+        if (services_pos === 0)
+        {
+            window.location.href = window.location.href.substring(0, i) + "/training.html?category=" + 3;
+        }
+        else
+        {
+            window.location.href = window.location.href.substring(0, i) + "/training.html?category=" + 6;
+        }
+    });
 });
