@@ -5,14 +5,14 @@ var services_2_title = "Hazourdous Material Safety"
 var services_3_title = "Emergency Response"
 var services_4_title = "Distribution Safety"
 var services_5_title = "Occupational Health and Safety Management"
-var services_6_title = "Construction Safety"
+var services_6_title = "Hazardous Area Classification"
 
-var services_1_txt = "Sicher provides effective safety consulting programs for individuals and whole organizations in Process Safety Management, Hazardous Material Controls, Distribution Safety of Dangerous Goods, Crisis Management and Emergency Response as well as Occupational Health and Safety."
-var services_2_txt = "Sicher provides training, consultancy, and field inspections of the Hazardous Area Classification and Electrical Selections and Electrical Safety training and technical inspections based on international standards like National Fire Protection Associations (NFPA) 70E, National Electrical Code (NEC), International Electrotechnical Commission (IEC) and other."
+var services_1_txt = "Our German, Thai and other nations of PSM experts have more than 28 years of international knowledge and experiences from BASF, largest chemical company, and others. Sicher provides in-house and public training and consulting services in all areas of PSM e.g. PHA/HAZOP, Aging Plant Upgrade Management, including PSM assessment (IEAT License no.09) from the early phase continues throughout their life cycle."
+var services_2_txt = "In accordance with the Science and Technology Profession Promotion Act 2008, we are being approved by the Council of Science and Technology Processionals to conduct the training and examination to apply for a license to practice science and technology control in the field of production, control and management of hazardous chemicals."
 var services_3_txt = "the Promotion for Scientific and Technological Professions Act, B.E, Sicher is only one of two companies has been nominated officially from the Thailand Council of Sciene and Technology Professionals to organize training and qualify for science professionals to produce, control and manage of chemical and hazardous materials."
 var services_4_txt = "Both Thai and German expatriate trainers, we provide safety training and consulting to enhance safe transport, handling, and storage of Dangerous Goods (DG) and Hazardous Substances for bulk storage terminals and warehouses and road and marine transportation modes to comply with recognized transportation safety of international transportation safety standards such as ADR, IMDG ."
 var services_5_txt = "With the official partner between Sicher and Robere & Associates Company (first approved partner in the Asia Pacific by the Chartered Quality Institute (CQI) and the International Register of Certified Auditors from the United Kingdoms), we provide training and consulting services for ISO 45001- Occupational Health and Safety Management System and ISO 3100 Risk Management System."
-var services_6_txt = "The fatal injury rate for the construction industry is higher than the national average in this category for all industries. In our passion to protect the life of workers ,Sicher focus in this area and support the clients to decrease incidents and protect the life of people and properties."
+var services_6_txt = "Sicher provides training, consultancy, and field inspections of the Hazardous Area Classification and Electrical Selections and Electrical Safety training and technical inspections based on international standards like National Fire Protection Associations (NFPA) 70E, National Electrical Code (NEC), International Electrotechnical Commission (IEC) and other."
 
 $("#services-left").click(function ()
 {
