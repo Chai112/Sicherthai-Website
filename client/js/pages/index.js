@@ -126,18 +126,3 @@ $(document).ready(function(){
         }
     });
 });
-
-$.getScript('js/comms.js', function()
-{
-    window.onload= function()
-    {
-        var s = new Server(server_url);
-        var rqstquery = [{name:"request", val:"REQUEST"}, {name:"item", val:"INHOUSE_COURSES"}, {name:"number", val:"a"}];
-        //var rqstquery = [{name:"id", val:"REQUEST"}, {name:"q", val:"a"};
-        s.query(rqstquery, function(data){
-            alert(data);
-        });
-    }
-    // script is now loaded and executed.
-    // put your dependent JS here.
-})

@@ -10,20 +10,13 @@ var sep = 0;
 
 //var url = "http://validate.jsontest.com/?json=a";
 
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
-
 var items = [];
 
 function report(item, index)
 {
+    if (item.name === null)
+        return;
+
     item.name = item.name.replace(/_/g, " ");
     items[item.id] = item;
     
@@ -66,7 +59,7 @@ $("#b-box").click(function() {
     }
     else
     {
-        $("#b").text(gitem.target_group)
+        document.getElementById("b").innerHTML =gitem.target_group;
     }
     bshow = !bshow;
 });
@@ -78,7 +71,7 @@ $("#c-box").click(function() {
     }
     else
     {
-        $("#c").text(gitem.presentation_description)
+        document.getElementById("c").innerHTML =gitem.prerequisites;
     }
     cshow = !cshow;
 });
@@ -90,91 +83,69 @@ $("#d-box").click(function() {
     }
     else
     {
-        document.getElementById("d").innerHTML =gitem.event_schedule;
+        document.getElementById("d").innerHTML =gitem.itinerary;
     }
     dshow = !dshow;
 });
 
 
-function run() {
-    $.getJSON(
-        url,
-        function(data) {
-            var text = data.status;
-            if (data.err)
-            {
-                alert("Internal Server Error, please try again");
-                //SERVER ERROR
-            }
-            if (id !== data.id)
-            {
-                alert("Internal Server Error, please try again");
-                //AUTH ERROR: IDs do not match
-            }
-            // learning objective - objective
-            // target group
-            // presentation description
-            // content & schedule - event schedule
+function run(data) {
+    //date 1-6
+    //location 1-6
+    gitem = data.answer[0];
+    if (gitem.location === undefined) // inhouse if true
+        document.getElementById("tab").style = "display:none";
+    $("#reg-txt").text("REGISTER NOW | " + gitem.price + " THB");
+    for (i = 1; i < 7; i++)
+    {
+        loc = 0;
+        if (i === 1) {loc = gitem.location;}
+        if (i === 2) {loc = gitem.location_2;}
+        if (i === 3) {loc = gitem.location_3;}
+        if (i === 4) {loc = gitem.location_4;}
+        if (i === 5) {loc = gitem.location_5;}
+        if (i === 6) {loc = gitem.location_6;}
 
-            //$("#out").text(text);
-            //date 1-6
-            //location 1-6
-            data.answer.forEach(report);
-            gitem = items[getParameterByName("p")];
-            $("#reg-txt").text("REGISTER NOW | " + gitem.price + " THB");
-            for (i = 1; i < 7; i++)
-            {
-                loc = 0;
-                if (i === 1) {loc = gitem.location;}
-                if (i === 2) {loc = gitem.location_2;}
-                if (i === 3) {loc = gitem.location_3;}
-                if (i === 4) {loc = gitem.location_4;}
-                if (i === 5) {loc = gitem.location_5;}
-                if (i === 6) {loc = gitem.location_6;}
+        $("#location-" + i).text(loc);
 
-                $("#location-" + i).text(loc);
+        if (loc === null)
+            document.getElementById("location-" + i + "-row").style = "display:none";
+        for (j = 1; j < 5; j++)
+        {
+            date = 0;
+            if (i === 1 && j === 1) {date = gitem.date_1_1;}
+            if (i === 1 && j === 2) {date = gitem.date_1_2;}
+            if (i === 1 && j === 3) {date = gitem.date_1_3;}
+            if (i === 1 && j === 4) {date = gitem.date_1_4;}
 
-                if (loc === null)
-                    document.getElementById("location-" + i + "-row").style = "display:none";
-                for (j = 1; j < 5; j++)
-                {
-                    date = 0;
-                    if (i === 1 && j === 1) {date = gitem.date_1_1;}
-                    if (i === 1 && j === 2) {date = gitem.date_1_2;}
-                    if (i === 1 && j === 3) {date = gitem.date_1_3;}
-                    if (i === 1 && j === 4) {date = gitem.date_1_4;}
+            if (i === 2 && j === 1) {date = gitem.date_2_1;}
+            if (i === 2 && j === 2) {date = gitem.date_2_2;}
+            if (i === 2 && j === 3) {date = gitem.date_2_3;}
+            if (i === 2 && j === 4) {date = gitem.date_2_4;}
 
-                    if (i === 2 && j === 1) {date = gitem.date_2_1;}
-                    if (i === 2 && j === 2) {date = gitem.date_2_2;}
-                    if (i === 2 && j === 3) {date = gitem.date_2_3;}
-                    if (i === 2 && j === 4) {date = gitem.date_2_4;}
+            if (i === 3 && j === 1) {date = gitem.date_3_1;}
+            if (i === 3 && j === 2) {date = gitem.date_3_2;}
+            if (i === 3 && j === 3) {date = gitem.date_3_3;}
+            if (i === 3 && j === 4) {date = gitem.date_3_4;}
 
-                    if (i === 3 && j === 1) {date = gitem.date_3_1;}
-                    if (i === 3 && j === 2) {date = gitem.date_3_2;}
-                    if (i === 3 && j === 3) {date = gitem.date_3_3;}
-                    if (i === 3 && j === 4) {date = gitem.date_3_4;}
+            if (i === 4 && j === 1) {date = gitem.date_4_1;}
+            if (i === 4 && j === 2) {date = gitem.date_4_2;}
+            if (i === 4 && j === 3) {date = gitem.date_4_3;}
+            if (i === 4 && j === 4) {date = gitem.date_4_4;}
 
-                    if (i === 4 && j === 1) {date = gitem.date_4_1;}
-                    if (i === 4 && j === 2) {date = gitem.date_4_2;}
-                    if (i === 4 && j === 3) {date = gitem.date_4_3;}
-                    if (i === 4 && j === 4) {date = gitem.date_4_4;}
+            if (i === 5 && j === 1) {date = gitem.date_5_1;}
+            if (i === 5 && j === 2) {date = gitem.date_5_2;}
+            if (i === 5 && j === 3) {date = gitem.date_5_3;}
+            if (i === 5 && j === 4) {date = gitem.date_5_4;}
 
-                    if (i === 5 && j === 1) {date = gitem.date_5_1;}
-                    if (i === 5 && j === 2) {date = gitem.date_5_2;}
-                    if (i === 5 && j === 3) {date = gitem.date_5_3;}
-                    if (i === 5 && j === 4) {date = gitem.date_5_4;}
-
-                    if (i === 6 && j === 1) {date = gitem.date_6_1;}
-                    if (i === 6 && j === 2) {date = gitem.date_6_2;}
-                    if (i === 6 && j === 3) {date = gitem.date_6_3;}
-                    if (i === 6 && j === 4) {date = gitem.date_6_4;}
-                    $("#date-" + i + "-" + j).text(date);
-                }
-            }
-            $("#t-title").text(gitem.name);
+            if (i === 6 && j === 1) {date = gitem.date_6_1;}
+            if (i === 6 && j === 2) {date = gitem.date_6_2;}
+            if (i === 6 && j === 3) {date = gitem.date_6_3;}
+            if (i === 6 && j === 4) {date = gitem.date_6_4;}
+            $("#date-" + i + "-" + j).text(date);
         }
-    );
-
+    }
+    $("#t-title").text(gitem.name);
 }
 
 document.getElementById("reg").addEventListener("click", function()
@@ -184,4 +155,17 @@ document.getElementById("reg").addEventListener("click", function()
 
 // We'll run the AJAX query when the page loads.
 //$("#out").text("Connecting...");
-window.onload=run
+
+$.getScript('js/comms.js', function()
+{
+    var s = new Connection(server_url);
+    var rqstquery = [
+        {name:"type", val:"REQUEST"},
+        {name:"item", val:getParameterByName("type")},
+        {name:"id", val:getParameterByName("p")}
+    ];
+
+    s.query(rqstquery, function(data){
+        run(data);
+    });
+});

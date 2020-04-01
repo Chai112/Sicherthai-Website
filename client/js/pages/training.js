@@ -53,15 +53,21 @@ function search(query, list)
 
 function report(item)
 {
-    item.name = item.name.replace(/_/g, " ");
-
-    items[items.length] = item;
 }
 
 function draw(item)
 {
     $("#out-title").text(item.name);
-    $("#out-txt").text(item.location + ", " + item.price + " THB");
+    if (item.location === undefined)
+    {
+        $("#out-txt").text("INHOUSE COURSE - please contact us for pricing");
+        item.type = "INHOUSE_COURSES";
+    }
+    else
+    {
+        $("#out-txt").text(item.location + ", " + item.price + " THB");
+        item.type = "PUBLIC_COURSES";
+    }
     img_name = ""
     // type juggling
     if (item.category == 1) {img_name = "psm"}
@@ -79,7 +85,7 @@ function draw(item)
     {
         i--;
     }
-    $(out).click(function() {window.open(window.location.href.substring(0, i) + "/t-page.html?p=" + item.id);});
+    $(out).click(function() {window.open(window.location.href.substring(0, i) + "/t-page.html?type=" + item.type + "&p=" + item.id);});
     document.getElementById("list").appendChild(out);
 }
 
@@ -96,7 +102,13 @@ function run(data) {
     }
 
     //$("#out").text(text);
-    data.answer.forEach(report);
+    data.answer.forEach(function (item)
+    {
+        if (item.name === null)
+            return;
+        item.name = item.name.replace(/_/g, " ");
+        items[items.length] = item;
+    });
 
     document.getElementById("input-search-main").value = "";
     search_query = getParameterByName("search");
@@ -198,21 +210,17 @@ $(document).ready(function(){
 // We'll run the AJAX query when the page loads.
 //$("#out").text("Connecting...");
 //
-window.onload=run;
+//window.onload=run;
 
 $.getScript('js/comms.js', function()
 {
-    window.onload = function()
-    {
-        var s = new Connection(server_url);
-        //var rqstquery = [{name:"type", val:"REQUEST"}, {name:"item", val:"INHOUSE_COURSES"}, {name:"id", val:12}];
-        var rqstquery = [{name:"type", val:"REQUEST"}, {name:"item", val:"ALL_COURSES"}];
-        //var rqstquery = [{name:"id", val:"REQUEST"}, {name:"q", val:"a"};
-        s.query(rqstquery, function(data){
-            alert(data);
-            run(data);
-        });
-    }
-    // script is now loaded and executed.
-    // put your dependent JS here.
-})
+    var s = new Connection(server_url);
+    var rqstquery = [
+        {name:"type", val:"REQUEST"},
+        {name:"item", val:"ALL_COURSES"}
+    ];
+
+    s.query(rqstquery, function(data){
+        run(data);
+    });
+});

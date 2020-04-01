@@ -73,133 +73,156 @@ if ($inp_type === "REQUEST")
 
     if ($inp_item === "ALL_COURSES")
     {
-        $query = "SELECT * FROM InhouseCourses";
+        $query = "SELECT id,name,category FROM InhouseCourses";
         $row_array = array(
             "id",
             "name",
-            "category");
+            "category",
+        );
 
         $data->answer = fetch_sql($query, $row_array);
-        /*
 
-        if ($result = $db->query($query)) // TODO: unsanitised
-        {
-            $index = 0;
-            // fetch associative array
-            while ($row = $result->fetch_assoc()) 
-            {
-                $data->answer[$index] = array(
-                    "id" => $row["id"],
-                    "name" => $row["name"],
-                    "category" => $row["category"],
-                );
-                $index++;
-            }
-        }
-        else
-        {
-            echo "SQL fail";
-        }
-         */
+        $query = "SELECT id,name,category,location,price FROM PublicCourses";
+        $row_array = array(
+            "id",
+            "name",
+            "category",
+            "location",
+            "price",
+        );
+        $data->answer = array_merge($data->answer, fetch_sql($query, $row_array));
     }
+
 
     if ($inp_item === "INHOUSE_COURSES")
     {
         $inp_id = $_GET['id'];
         $query = "SELECT * FROM InhouseCourses where id = " . $inp_id;
-        $row_array = array("id", "name", "category");
+        $row_array = array(
+            "id",
+            "name",
+            "lecturer1_name",
+            "lecturer2_name",
+            "lecturer3_name",
+            "lecturer4_name",
+            "objective",
+            "target_group",
+            "prerequisites",
+            "itinerary",
+            "category",
+
+            "date_1_1",
+            "date_1_2",
+            "date_1_3",
+            "date_1_4",
+
+            "date_2_1",
+            "date_2_2",
+            "date_2_3",
+            "date_2_4",
+
+            "date_3_1",
+            "date_3_2",
+            "date_3_3",
+            "date_3_4",
+
+            "date_4_1",
+            "date_4_2",
+            "date_4_3",
+            "date_4_4",
+
+            /*
+            "date_5_1",
+            "date_5_2",
+            "date_5_3",
+            "date_5_4",
+
+            "date_6_1",
+            "date_6_2",
+            "date_6_3",
+            "date_6_4",
+             */
+        );
 
         $data->answer = fetch_sql($query, $row_array);
+
+        // read from file
+        $data->answer[0]["itinerary"] = fetch_file("data/itinerary/" . $data->answer[0]["itinerary"]);
+
+        if (isset($data->answer[0]["lecturer1_name"]))
+        {
+            $query = "SELECT * FROM Lecturers where id = " . $data->answer[0]["lecturer1_name"];
+
+            $row_array = array(
+                "firstname",
+                "surname",
+                "license",
+                "description"
+            );
+            $data->answer[0]["lecturer1_name"] = fetch_sql($query, $row_array);
+        }
+
     }
 
     if ($inp_item === "PUBLIC_COURSES")
     {
         $inp_id = $_GET['id'];
-        $query = "SELECT * FROM InhouseCourses where id = " . $inp_id;
-        $row_array = array("id", "name", "category");
+        $query = "SELECT * FROM PublicCourses where id = " . $inp_id;
+        $row_array = array(
+                "id",
+                "name",
+                "location",
+                "location_2",
+                "location_3",
+                "location_4",
+                "location_5",
+                "location_6",
+                "lecturer1_name",
+                "lecturer2_name",
+                "lecturer3_name",
+                "lecturer4_name",
+                "objective",
+                "target_group",
+                "prerequisites",
+                "itinerary",
+                "category",
+
+                "date_1_1",
+                "date_1_2",
+                "date_1_3",
+                "date_1_4",
+
+                "date_2_1",
+                "date_2_2",
+                "date_2_3",
+                "date_2_4",
+
+                "date_3_1",
+                "date_3_2",
+                "date_3_3",
+                "date_3_4",
+
+                "date_4_1",
+                "date_4_2",
+                "date_4_3",
+                "date_4_4",
+
+                /*
+                "date_5_1",
+                "date_5_2",
+                "date_5_3",
+                "date_5_4",
+
+                "date_6_1",
+                "date_6_2",
+                "date_6_3",
+                "date_6_4",
+                 */
+        );
 
         $data->answer = fetch_sql($query, $row_array);
     }
 }
-//$result->free();
-
-// read from file
-//echo fetch_file('data/itinerary/a');
-/*
-
-
-// SQL get info
-$index = 0;
-//$query = "SELECT id FROM Courses WHERE name = '" .$q ."'";
-$query = "SELECT * FROM InhouseCourses";
-if ($result = $db->query($query)) // TODO: unsanitised
-{
-    // fetch associative array
-    while ($row = $result->fetch_assoc()) 
-    {
-        $data->answer[$index] = array(
-            "id" => $row["id"],
-            "name" => $row["name"],
-            "location" => $row["location"],
-            "location_2" => $row["location_2"],
-            "location_3" => $row["location_3"],
-            "location_4" => $row["location_4"],
-            "location_5" => $row["location_5"],
-            "location_6" => $row["location_6"],
-            "lecturer1_name" => $row["lecturer1_name"],
-            "lecturer2_name" => $row["lecturer2_name"],
-            "lecturer3_name" => $row["lecturer3_name"],
-            "lecturer4_name" => $row["lecturer4_name"],
-            "objective" => $row["objective"],
-            "target_group" => $row["target_group"],
-            "presentation_description" => $row["prerequisites"],
-            "event_schedule" => $row["itinerary"],
-            
-            "date_1_1" => $row["date_1_1"],
-            "date_1_2" => $row["date_1_2"],
-            "date_1_3" => $row["date_1_3"],
-            "date_1_4" => $row["date_1_4"],
-            
-            "date_2_1" => $row["date_2_1"],
-            "date_2_2" => $row["date_2_2"],
-            "date_2_3" => $row["date_2_3"],
-            "date_2_4" => $row["date_2_4"],
-            
-            "date_3_1" => $row["date_3_1"],
-            "date_3_2" => $row["date_3_2"],
-            "date_3_3" => $row["date_3_3"],
-            "date_3_4" => $row["date_3_4"],
-            
-            "date_4_1" => $row["date_4_1"],
-            "date_4_2" => $row["date_4_2"],
-            "date_4_3" => $row["date_4_3"],
-            "date_4_4" => $row["date_4_4"],
- */
-            /*
-            "date_5_1" => $row["date_5_1"],
-            "date_5_2" => $row["date_5_2"],
-            "date_5_3" => $row["date_5_3"],
-            "date_5_4" => $row["date_5_4"],
-            
-            "date_6_1" => $row["date_6_1"],
-            "date_6_2" => $row["date_6_2"],
-            "date_6_3" => $row["date_6_3"],
-            "date_6_4" => $row["date_6_4"],
-            */
-            
-/*
-            "category" => $row["category"],
-        );
-        $index++;
-    }
-    // free result set
-    $result->free();
-}
-else
-{
-    //report_err("SQL Message failed: " .$result);
-}
- */
 
 // Send the data.
 echo json_encode($data);
