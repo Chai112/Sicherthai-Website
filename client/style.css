@@ -8,7 +8,7 @@ html, body {
 }
 .header {
     display:block;
-    height:8vh;
+    height:5rem;
     width:100%;
     border-bottom:1px solid #dddddd;
     background-color:white;
@@ -21,9 +21,9 @@ html, body {
     position:fixed;
     left:0;
 
-    margin:0.5vh 0.5vh;
-    width:7vh;
-    height:7vh;
+    margin:0.25rem 0.25rem;
+    width:4.5rem;
+    height:4.5rem;
 }
 .header .menu-img {
     display:none;
@@ -37,16 +37,16 @@ html, body {
 .header .buttons {
     display:block;
     margin:auto;
-    margin-top:2vh;
+    margin-top:2rem;
     margin-left:20vw;
 }
 .header .button {
     display:inline-block;
     cursor:pointer;
-    margin-top:1vh;
+    margin-top:0rem;
     margin-left:2vw;
 
-    padding-top:1vw;
+    padding-top:1rem;
 
     font-size:1.1em;
     font-weight:600;
@@ -63,7 +63,7 @@ img {
 .th :lang(en) {
   display:none;
 }
-a:visited {
+a:link, a:visited {
   color:black;
 }
 a:hover{
@@ -166,13 +166,15 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 .rowbox {
     display:block;
     position:static;
+    cursor:pointer;
+    width:unset;
 
 
     margin:auto;
     max-width:70em;
 
     margin-top:2em;
-    padding:1em 1em;
+    padding:1rem 1rem;
 
     border-radius:5px;
     box-shadow:0 0.2em 0.5em #00000020;

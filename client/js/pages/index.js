@@ -5,7 +5,7 @@ var services_2_title = "Hazourdous Material Safety"
 var services_3_title = "Emergency Response"
 var services_4_title = "Distribution Safety"
 var services_5_title = "Occupational Health and Safety Management"
-var services_6_title = "Hazardous Area Classification"
+var services_6_title = "ISO Management Systems"
 
 var services_1_txt = "Our German, Thai and other nations of PSM experts have more than 28 years of international knowledge and experiences from BASF, largest chemical company, and others. Sicher provides in-house and public training and consulting services in all areas of PSM e.g. PHA/HAZOP, Aging Plant Upgrade Management, including PSM assessment (IEAT License no.09) from the early phase continues throughout their life cycle."
 var services_2_txt = "In accordance with the Science and Technology Profession Promotion Act 2008, we are being approved by the Council of Science and Technology Processionals to conduct the training and examination to apply for a license to practice science and technology control in the field of production, control and management of hazardous chemicals."

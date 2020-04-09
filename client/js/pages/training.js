@@ -85,7 +85,7 @@ function draw(item)
     {
         i--;
     }
-    $(out).click(function() {window.open(window.location.href.substring(0, i) + "/t-page.html?type=" + item.type + "&p=" + item.id);});
+    $(out).click(function() {window.location.href = window.location.href.substring(0, i) + "/t-page.html?type=" + item.type + "&p=" + item.id;});
     document.getElementById("list").appendChild(out);
 }
 
@@ -113,6 +113,7 @@ function run(data) {
     document.getElementById("input-search-main").value = "";
     search_query = getParameterByName("search");
     category = getParameterByName("category");
+    type = getParameterByName("type");
     if (search_query != null && search_query != "")
     {
         items = search(search_query, items);
@@ -129,7 +130,35 @@ function run(data) {
         }
         else
         {
-            draw(items[k]);
+            if (type != null)
+            {
+                if (type === "PUBLIC")
+                {
+            document.getElementById("txt-p").style = "color:red";
+                    if (items[k].location != undefined)
+                    {
+                        draw(items[k]);
+                    }
+
+                }
+                else if (type === "INHOUSE")
+                {
+            document.getElementById("txt-i").style = "color:red";
+                    if (items[k].location === undefined)
+                    {
+                        draw(items[k]);
+                    }
+
+                }
+                else
+                {
+                    alert("unknown type in url!");
+                }
+            }
+            else
+            {
+                draw(items[k]);
+            }
         }
     }
     document.getElementById("out").style="display:none";
@@ -203,6 +232,24 @@ $(document).ready(function(){
             i--;
         }
         window.location.href = window.location.href.substring(0, i) + "/training.html";
+    });
+    $("#c-p").click(function(){category = 1;
+        w = window.location.href;
+        i = window.location.href.length;
+        while (window.location.href[i] != '/')
+        {
+            i--;
+        }
+        window.location.href = window.location.href.substring(0, i) + "/training.html?type=PUBLIC";
+    });
+    $("#c-i").click(function(){category = 1;
+        w = window.location.href;
+        i = window.location.href.length;
+        while (window.location.href[i] != '/')
+        {
+            i--;
+        }
+        window.location.href = window.location.href.substring(0, i) + "/training.html?type=INHOUSE";
     });
     
 });

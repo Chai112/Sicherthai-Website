@@ -73,15 +73,6 @@ if ($inp_type === "REQUEST")
 
     if ($inp_item === "ALL_COURSES")
     {
-        $query = "SELECT id,name,category FROM InhouseCourses";
-        $row_array = array(
-            "id",
-            "name",
-            "category",
-        );
-
-        $data->answer = fetch_sql($query, $row_array);
-
         $query = "SELECT id,name,category,location,price FROM PublicCourses";
         $row_array = array(
             "id",
@@ -90,6 +81,16 @@ if ($inp_type === "REQUEST")
             "location",
             "price",
         );
+
+        $data->answer = fetch_sql($query, $row_array);
+
+        $query = "SELECT id,name,category FROM InhouseCourses";
+        $row_array = array(
+            "id",
+            "name",
+            "category",
+        );
+
         $data->answer = array_merge($data->answer, fetch_sql($query, $row_array));
     }
 
@@ -110,6 +111,7 @@ if ($inp_type === "REQUEST")
             "prerequisites",
             "itinerary",
             "category",
+            "duration",
 
             "date_1_1",
             "date_1_2",
@@ -159,9 +161,45 @@ if ($inp_type === "REQUEST")
                 "license",
                 "description"
             );
-            $data->answer[0]["lecturer1_name"] = fetch_sql($query, $row_array);
+            $data->answer[0]["lecturer1"] = fetch_sql($query, $row_array);
         }
+        if (isset($data->answer[0]["lecturer2_name"]))
+        {
+            $query = "SELECT * FROM Lecturers where id = " . $data->answer[0]["lecturer2_name"];
 
+            $row_array = array(
+                "firstname",
+                "surname",
+                "license",
+                "description"
+            );
+            $data->answer[0]["lecturer2"] = fetch_sql($query, $row_array);
+        }
+        if (isset($data->answer[0]["lecturer3_name"]))
+        {
+            $query = "SELECT * FROM Lecturers where id = " . $data->answer[0]["lecturer3_name"];
+
+            $row_array = array(
+                "firstname",
+                "surname",
+                "license",
+                "description"
+            );
+            $data->answer[0]["lecturer3"] = fetch_sql($query, $row_array);
+        }
+        if (isset($data->answer[0]["lecturer4_name"]))
+        {
+            $query = "SELECT * FROM Lecturers where id = " . $data->answer[0]["lecturer4_name"];
+
+            $row_array = array(
+                "firstname",
+                "surname",
+                "license",
+                "description"
+            );
+            $data->answer[0]["lecturer4"] = fetch_sql($query, $row_array);
+        }
+        
     }
 
     if ($inp_item === "PUBLIC_COURSES")
@@ -186,6 +224,8 @@ if ($inp_type === "REQUEST")
                 "prerequisites",
                 "itinerary",
                 "category",
+                "price",
+                "duration",
 
                 "date_1_1",
                 "date_1_2",
@@ -221,6 +261,55 @@ if ($inp_type === "REQUEST")
         );
 
         $data->answer = fetch_sql($query, $row_array);
+        if (isset($data->answer[0]["lecturer1_name"]))
+        {
+            $query = "SELECT * FROM Lecturers where id = " . $data->answer[0]["lecturer1_name"];
+
+            $row_array = array(
+                "firstname",
+                "surname",
+                "license",
+                "description"
+            );
+            $data->answer[0]["lecturer1"] = fetch_sql($query, $row_array);
+        }
+        if (isset($data->answer[0]["lecturer2_name"]))
+        {
+            $query = "SELECT * FROM Lecturers where id = " . $data->answer[0]["lecturer2_name"];
+
+            $row_array = array(
+                "firstname",
+                "surname",
+                "license",
+                "description"
+            );
+            $data->answer[0]["lecturer2"] = fetch_sql($query, $row_array);
+        }
+        if (isset($data->answer[0]["lecturer3_name"]))
+        {
+            $query = "SELECT * FROM Lecturers where id = " . $data->answer[0]["lecturer3_name"];
+
+            $row_array = array(
+                "firstname",
+                "surname",
+                "license",
+                "description"
+            );
+            $data->answer[0]["lecturer3"] = fetch_sql($query, $row_array);
+        }
+        if (isset($data->answer[0]["lecturer4_name"]))
+        {
+            $query = "SELECT * FROM Lecturers where id = " . $data->answer[0]["lecturer4_name"];
+
+            $row_array = array(
+                "firstname",
+                "surname",
+                "license",
+                "description"
+            );
+            $data->answer[0]["lecturer4"] = fetch_sql($query, $row_array);
+        }
+        $data->answer[0]["itinerary"] = fetch_file("data/itinerary/" . $data->answer[0]["itinerary"]);
     }
 }
 
