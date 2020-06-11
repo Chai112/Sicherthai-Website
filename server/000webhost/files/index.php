@@ -20,8 +20,8 @@ function fetch_sql($query, $cell_array)
 {
     // init sql
     $servername = "sql265.main-hosting.eu";
-    $username = "u540959199_sicher";
-    $password = "Titacute_";
+    $username = "u540959199_dontLook";
+    $password = "dontLook";
     $database = "u540959199_Courses";
 
     // SQL Create connection
